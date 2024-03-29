@@ -1,0 +1,24 @@
+.page-header.is-sticky {
+  position: fixed;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.5s ease-out;
+  background: #ffffff;
+}
+.page-header.is-sticky nav ul {
+  color: black;
+  font-weight: 500;
+}
+.page-header.is-sticky nav ul li ul {
+  color: black;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
