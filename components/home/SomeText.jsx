@@ -2,7 +2,7 @@ const SomeText = () => {
   return (
     <>
       <div>
-        <p className="jp-text-test">
+        <p className="jp-text-test container">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo voluptate quae
           vel! Voluptatum, dolores harum. Eveniet provident rerum beatae exercitationem.
           Impedit aut sunt explicabo earum fugit deleniti nihil doloremque, cum, vel

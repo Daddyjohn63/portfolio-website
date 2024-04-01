@@ -1,12 +1,14 @@
 import HomeHero from '@/components/home/HomeHero';
+import HomeSectionOne from '@/components/home/HomeSectionOne';
+// import HomeHero from '@/components/home/HomeHeroCopy';
 import SomeText from '@/components/home/SomeText';
-import Image from 'next/image';
 
 export default function Home() {
   return (
     <>
       <HomeHero />
-      <SomeText />
+      <HomeSectionOne />
+      {/* <SomeText /> */}
     </>
   );
 }

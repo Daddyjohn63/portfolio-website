@@ -5,15 +5,25 @@ export const headerMenuItems = [
   },
   {
     label: 'about',
-    link: 'about'
+    link: '/about'
+  },
+  {
+    label: 'services',
+    link: '/services',
+    submenu: true,
+    subMenuItems: [
+      { label: 'All', link: '/services' },
+      { label: 'Development', link: '/services/development' },
+      { label: 'Hosting', link: 'services/hosting' }
+    ]
   },
   {
     label: 'portfolio',
-    link: 'portfolio'
+    link: '/portfolio'
   },
 
   {
     label: 'contact',
-    link: 'contact'
+    link: '/contact'
   }
 ];

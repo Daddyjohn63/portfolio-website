@@ -66,3 +66,19 @@ This hook is designed to be used within functional React components. By providin
 ### Summary
 
 In summary, the `useScroll` hook provides a reusable and efficient way to monitor and react to the user's scroll behavior in React applications. It leverages React's hooks for state management, effect side effects, and memoizing callbacks, ensuring that the functionality is both performant and easy to integrate into other components.
+
+### Sidebar Mobile Navigation
+
+# change MenuItems to include sub-items - DONE
+
+# create a new component to add to my Header called SideBar
+
+# create a the SideBar component to take two other components 1) Logo 2) SideBarRoutes --DONE
+
+# Import MenuItems into SideBarRoutes and use SideBarRoutes to handle all the code needed for the rendering of the menu items. Start by just creating a simple list to see if it works when rendered through MobileSideBar. -- DONE
+
+# create a component called MobileSidebar, this will import the shadcnui sheet component and render SideBarMobile --DONE
+
+# go back to SideBarRoutes and put the full code in, starting with just the parent menu items and then add the child menu items.
+
+# add Zustand to manage the state so that the sidebar closes when the user clicks on a menu item.

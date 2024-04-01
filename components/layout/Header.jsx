@@ -4,6 +4,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import NavBar from './NavBar';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+
+import MobileSideBar from './MobileSideBar';
+import Logo from './Logo';
 
 const Header = () => {
   const { sticky } = useSticky(150);
@@ -31,16 +35,15 @@ const Header = () => {
   return (
     <header className={headerClass}>
       <div
-        className={`flex h-[80px] items-center justify-between px-4 ${textColorClass}`}
+        className={`flex h-[80px] container  items-center justify-between px-9 ${textColorClass}`}
       >
         {/* LOGO START */}
-        <Link className={textColorClass} href="/">
-          My Portfolio App Logo
-        </Link>
+        <Logo />
         {/* LOGO END */}
 
         {/* NAVBAR START */}
-        <NavBar textColorClass={textColorClass} />
+        <NavBar textColorClass={textColorClass} pathname={pathname} />
+        {/* I think am supposed to pass both these props */}
         {/* NAVBAR END */}
 
         {/* SOCIAL MEDIA START */}
@@ -48,6 +51,10 @@ const Header = () => {
           <p className={textColorClass}>Social Media</p>
         </div>
         {/* SOCIAL MEDIA END */}
+        {/* ADD SIDEBAR MOBILE HERE */}
+        <div className="md:hidden">
+          <MobileSideBar pathname={pathname} />
+        </div>
       </div>
     </header>
   );

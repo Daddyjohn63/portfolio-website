@@ -7,35 +7,24 @@ const HomeHero = () => {
         className="bg-cover bg-center"
         style={{ backgroundImage: `url('/images/img7.jpg')` }}
       >
-        <div className="w-full relative isolate overflow-hidden bg-gray-900 bg-opacity-60">
+        <div className="w-full relative isolate overflow-hidden bg-gray-900">
           <svg
-            className="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+            className="absolute inset-0 -z-10 h-full w-full stroke-white/10"
             aria-hidden="true"
           >
             <defs>
               <pattern
-                id="983e3e4c-de6d-4c3f-8d64-b9761d1534cc"
+                id="image-pattern"
                 width={200}
                 height={200}
                 x="50%"
                 y={-1}
                 patternUnits="userSpaceOnUse"
               >
-                <path d="M.5 200V.5H200" fill="none" />
+                <image href="/images/img7.jpg" width={200} height={200} />
               </pattern>
             </defs>
-            <svg x="50%" y={-1} className="overflow-visible fill-gray-800/20">
-              <path
-                d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-                strokeWidth={0}
-              />
-            </svg>
-            <rect
-              width="100%"
-              height="100%"
-              strokeWidth={0}
-              fill="url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)"
-            />
+            <rect width="100%" height="100%" strokeWidth={0} fill="url(#image-pattern)" />
           </svg>
           <div
             className="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]"
@@ -51,25 +40,28 @@ const HomeHero = () => {
           </div>
           <div className="container mx-auto max-w-8xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
             <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
-              {/* <img
+              <img
                 className="h-11"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                 alt="Your Company"
-              /> */}
+              />
               <div className="mt-24 sm:mt-32 lg:mt-16">
                 <a href="#" className="inline-flex space-x-6">
                   <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
-                    A new force in costume design is here
+                    What's new
+                  </span>
+                  <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300">
+                    <span>Just shipped v1.0</span>
+                    <ChevronRight className="h-5 w-5 text-gray-500" aria-hidden="true" />
                   </span>
                 </a>
               </div>
               <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                Costume design for film and theatre
+                Deploy to the cloud with confidence
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Jackie Paul designs, anim aute id magna aliqua ad ad non deserunt sunt.
-                Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                occaecat fugiat aliqua.
+                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+                cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <a
