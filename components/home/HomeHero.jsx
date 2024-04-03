@@ -1,11 +1,15 @@
+'use client';
 import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+
+import Reveal from '@/components/common/ScrollAnimation';
 
 const HomeHero = () => {
   return (
     <>
       <div
         className="bg-cover bg-center"
-        style={{ backgroundImage: `url('/images/img7.jpg')` }}
+        style={{ backgroundImage: `url('/images/img8.jpg')` }}
       >
         <div className="w-full relative isolate overflow-hidden bg-gray-900 bg-opacity-60">
           <svg
@@ -50,39 +54,44 @@ const HomeHero = () => {
             />
           </div>
           <div className="container mx-auto max-w-8xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
-            <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
-              {/* <img
+            <Reveal from={200}>
+              <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
+                {/* <img
                 className="h-11"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                 alt="Your Company"
               /> */}
-              <div className="mt-24 sm:mt-32 lg:mt-16">
-                <a href="#" className="inline-flex space-x-6">
-                  <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
-                    A new force in costume design is here
-                  </span>
-                </a>
+
+                <div className="mt-24 sm:mt-32 lg:mt-16">
+                  <Link href="#" className="inline-flex space-x-6">
+                    <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
+                      Some catchy sub-heading
+                    </span>
+                  </Link>
+                </div>
+
+                <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                  Vintage Costume Tailoring
+                </h1>
+
+                <p className="mt-6 text-lg leading-8 text-gray-300">
+                  Jackie Paul designs, anim aute id magna aliqua ad ad non deserunt sunt.
+                  Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
+                  occaecat fugiat aliqua.
+                </p>
+                <div className="mt-10 flex items-center gap-x-6">
+                  <Link
+                    href="#"
+                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                  >
+                    View My Work
+                  </Link>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-white">
+                    Learn more <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
               </div>
-              <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                Costume design for film and theatre
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                Jackie Paul designs, anim aute id magna aliqua ad ad non deserunt sunt.
-                Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                occaecat fugiat aliqua.
-              </p>
-              <div className="mt-10 flex items-center gap-x-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-                >
-                  Get started
-                </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-white">
-                  Learn more <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
+            </Reveal>
             {/* <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
             <img

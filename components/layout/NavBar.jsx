@@ -37,12 +37,12 @@ const NavBar = ({ pathname }) => {
               {/* if item has dropdown property..then */}
               {item.subMenuItems && (
                 //display the ul for dropdown menus
-                <ul className="lg:absolute lg:top-full left-0 lg:h-fit h-0 bg-gray-50 lg:rounded-t-none  border-t-3 border-solid border-black flex flex-col gap-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:h-fit group-hover:py-6 transition-all duration-300 z-20">
+                <ul className="jp-border mt-3 absolute top-full left-0 h-fit bg-gray-50 rounded-t-none  border-t-[3px] border-solid border-violet-500 shadow drop-shadow flex flex-col gap-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:h-fit group-hover:py-6 transition-all duration-300 z-20">
                   {/* now map over the sub-items */}
                   {item.subMenuItems.map((dropdownItem, i) => (
                     <li
                       key={i}
-                      className="text-black hover:text-primary transition-all duration-300 ease-in-out px-6 group/subDrop"
+                      className="text-black hover:text-violet-500 transition-all duration-300 ease-in-out px-6 "
                     >
                       <Link href={dropdownItem?.link}>{dropdownItem?.label}</Link>
                     </li>

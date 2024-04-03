@@ -1,14 +1,6 @@
-import SomeText from '@/components/home/SomeText';
-import SideBar from '@/components/layout/SideBar';
+import AboutIntro from '@/components/about/AboutIntro';
 
 const AboutPage = () => {
-  return (
-    <>
-      <div className="pt-[80px]">About Page</div>
-
-      <SomeText />
-      <SomeText />
-    </>
-  );
+  return <AboutIntro />;
 };
 export default AboutPage;

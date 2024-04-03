@@ -12,7 +12,6 @@ export const headerMenuItems = [
     link: '/services',
     submenu: true,
     subMenuItems: [
-      { label: 'All', link: '/services' },
       { label: 'Development', link: '/services/development' },
       { label: 'Hosting', link: 'services/hosting' }
     ]

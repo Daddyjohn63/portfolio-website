@@ -42,13 +42,13 @@ const HomeSectionOne = () => {
       </div>
 
       {/* <!-- Right side: Image --> */}
-      <div className="md:w-1/2">
+      <div className="w-full md:w-1/2">
         <Image
-          src="/images/img1.jpg"
+          src="/images/img1a.jpg"
           alt="Image"
           width={800}
-          height={600}
-          className="w-full h-auto md:h-full object-cover rounded-lg"
+          height={800}
+          className="w-full h-full object-cover rounded-lg"
         />
       </div>
     </div>
