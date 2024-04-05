@@ -9,7 +9,7 @@ const AboutIntro = () => {
   return (
     <div className="py-20">
       <div className="container">
-        <Title subTitle="Our Journey" title="About TechWizard" primary={true} />
+        <Title subTitle="Jackie Paul" title="My Journey" primary={true} />
         <div className="grid md:grid-cols-2 lg:gap-16 gap-10 items-center">
           {/* ABOUT IMAGE SIDE */}
           <Reveal from={200}>
@@ -47,9 +47,9 @@ const AboutIntro = () => {
               </p>
 
               {/* POINTS */}
-              <ul className="mt-8 grid lg:grid-cols-2 gap-5 w-full">
+              <ul className="mt-8 grid lg:grid-cols-2 gap-1 w-full">
                 {aboutUsData?.keyPoints.map((point, i) => (
-                  <div className="flex flex-col md:flex-row md:gap-5 gap-2" key={i}>
+                  <div className="flex flex-col md:flex-row md:gap-2 gap-2" key={i}>
                     <span className="text-5xl text-gray-500">
                       <point.icon />
                     </span>

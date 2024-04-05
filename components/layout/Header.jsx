@@ -23,7 +23,7 @@ const Header = () => {
   const headerClass = cn('top-0 left-0 w-full z-10', {
     'page-header is-sticky bg-white shadow-md': sticky,
     'bg-transparent absolute': !sticky && isHome, // Transparent only when not sticky and on the home page
-    'bg-white': !isHome || sticky // White background if not on the home page or if sticky
+    'bg-white shadow-md': !isHome || sticky // White background if not on the home page or if sticky
   });
 
   // Adjust text color based on the page

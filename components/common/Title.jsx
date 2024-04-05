@@ -25,7 +25,7 @@ const Title = ({ subTitle, title, primary, titleBlack, classNames, subTitleColor
         {/* Subtitle */}
         <h5
           className={twMerge(
-            'lg:text-2xl text-xl relative subtitle flex justify-center items-center before:w-5 before:h-0.5 before:inline-block before:mr-3',
+            'lg:text-2xl text-xl relative subtitle flex justify-center items-center mb-2',
             primary ? 'before:bg-black' : 'before:bg-white',
             subTitleColor ? subTitleColor : 'text-inherit'
           )}
