@@ -16,27 +16,14 @@ const SideBarRoutes = () => {
       : '';
   };
 
-  // console.log('MOBILE ROUTES', pathname);
+  console.log('MOBILE ROUTES', pathname);
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
 
-  // const toggleDropdown = index => {
-  //   if (openDropdownIndex === index) {
-  //     setOpenDropdownIndex(null);
-  //   } else {
-  //     setOpenDropdownIndex(index);
-  //   }
-  // };
   const toggleDropdown = index => {
     // This function toggles the dropdown state, triggering the animation
     setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
 
-  // Using scaleY for the animation
-  // Improved variants for smooth opening and closing animations
-  // const variants = {
-  //   open: { scaleY: 1, opacity: 1, transition: { duration: 0.5 } },
-  //   closed: { scaleY: 0, opacity: 0, transition: { duration: 0.5 } }
-  // };
   const variants = {
     initial: { opacity: 0, scaleY: 0 },
     animate: { opacity: 1, scaleY: 1, height: 'auto', transition: { duration: 0.5 } },
@@ -55,7 +42,15 @@ const SideBarRoutes = () => {
                     className="w-full flex justify-between   gap-1 cursor-pointer"
                     onClick={() => toggleDropdown(index)}
                   >
-                    {item.label}
+                    <span
+                      className={cn(
+                        'flex items-center hover:text-zinc-500 transition-all duration-500 ',
+                        isActive(item.link) && 'text-sky-700  hover:text-sky-900'
+                      )}
+                    >
+                      {item.label}
+                    </span>
+
                     {item.subMenuItems.length > 0 && (
                       <ChevronDown
                         className={`${
@@ -82,23 +77,19 @@ const SideBarRoutes = () => {
                               href={subItem.link}
                               className="cursor-pointer justify-between w-full"
                             >
-                              {subItem.label}
+                              <span
+                                className={cn(
+                                  'flex items-center hover:text-zinc-500 transition-all duration-500 ',
+                                  isActive(subItem.link) &&
+                                    'text-sky-700  hover:text-sky-900'
+                                )}
+                              >
+                                {subItem.label}
+                              </span>
                             </Link>
                           </li>
                         ))}
                       </motion.ul>
-                      // <ul className="bg-gray-50 rounded-md border-t-3 border-primary max-w-sm shadow-md flex flex-col gap-3 py-6">
-                      //   {item.subMenuItems.map((subItem, subIndex) => (
-                      //     <li key={subIndex} className="text-black hover:text-primary px-6">
-                      //       <Link
-                      //         className="cursor-pointer justify-between w-full"
-                      //         href={subItem.link}
-                      //       >
-                      //         {subItem.label}
-                      //       </Link>
-                      //     </li>
-                      //   ))}
-                      // </ul>
                     )}
                   </AnimatePresence>
                 </>

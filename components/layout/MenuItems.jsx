@@ -14,6 +14,11 @@ export const headerMenuItems = [
         id: 20,
         label: 'History',
         link: '/about/history'
+      },
+      {
+        id: 22,
+        label: 'My CV',
+        link: '/about/my-cv'
       }
     ]
   },

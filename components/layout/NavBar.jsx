@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 
 const NavBar = ({ pathname }) => {
+  //console.log('DESKTOP', pathname);
   const isActive = link => {
     return pathname === link ||
       (pathname === '/' && link === '/') ||
