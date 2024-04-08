@@ -1,70 +1,107 @@
-'use client';
 import Link from 'next/link';
-import { useState } from 'react';
 import { headerMenuItems } from './MenuItems';
-import { cn } from '@/lib/utils';
-import { usePathname } from 'next/navigation';
-import { ChevronDown, ChevronsDown } from 'lucide-react';
-import { twMerge } from 'tailwind-merge';
+import { ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const SideBarRoutes = () => {
-  const [openDropdownIndex, setOpenDropdownIndex] = useState(null); // Track which dropdown is open
+  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
 
+  // const toggleDropdown = index => {
+  //   if (openDropdownIndex === index) {
+  //     setOpenDropdownIndex(null);
+  //   } else {
+  //     setOpenDropdownIndex(index);
+  //   }
+  // };
   const toggleDropdown = index => {
-    // Toggle between open and close by clicking the same menu item
-    if (openDropdownIndex === index) {
-      setOpenDropdownIndex(null);
-    } else {
-      setOpenDropdownIndex(index);
-    }
+    // This function toggles the dropdown state, triggering the animation
+    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
+  };
+
+  // Using scaleY for the animation
+  // Improved variants for smooth opening and closing animations
+  // const variants = {
+  //   open: { scaleY: 1, opacity: 1, transition: { duration: 0.5 } },
+  //   closed: { scaleY: 0, opacity: 0, transition: { duration: 0.5 } }
+  // };
+  const variants = {
+    initial: { opacity: 0, scaleY: 0 },
+    animate: { opacity: 1, scaleY: 1, height: 'auto', transition: { duration: 0.5 } },
+    exit: { opacity: 0, scaleY: 0, transition: { duration: 0.1 } }
   };
 
   return (
-    <nav
-      className={cn(
-        'flex items-center gap-10 absolute top-0 left-0 w-full  py-[100px]  transition-all duration-500 ease-in-out z-50 overflow-y-scroll',
-        'translate-y-0 opacity-100 visible'
-      )}
-    >
-      {/*---------------------- NAV LIST START ----------------------*/}
-      <ul className="flex flex-col items-center gap-4  text-lg font-medium">
-        {headerMenuItems?.map((item, index) => (
-          <li
-            key={index}
-            className="flex flex-col items-center relative group text-black"
-          >
-            {item.subMenuItems ? (
-              <div
-                onClick={() => toggleDropdown(index)}
-                className="flex items-center gap-1 cursor-pointer"
-              >
-                {item.label}
-                <ChevronDown
-                  className={`${
-                    openDropdownIndex === index ? 'rotate-180' : 'rotate-0'
-                  } transition-transform`}
-                />
-                {openDropdownIndex === index && (
-                  <ul className="absolute top-full left-0 bg-gray-50 rounded-md border-t-3 border-primary max-w-sm shadow-md flex flex-col gap-3 py-6 opacity-100 visible transition-all duration-300 z-20">
-                    {item.subMenuItems.map((Item, Index) => (
-                      <li key={Index} className="text-black hover:text-primary px-6">
-                        <Link href={Item.link}>
-                          <span className="cursor-pointer">{Item.label}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ) : (
-              <Link href={item.link !== '' ? `${item.link}` : '/'}>
-                <span className="cursor-pointer text-black">{item.label}</span>
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-      {/*---------------------- NAV LIST END ----------------------*/}
+    <nav className="flex px-3">
+      <div className="w-full">
+        <ul className="flex flex-col items-start gap-4 text-lg font-medium capitalize ">
+          {headerMenuItems?.map((item, index) => (
+            <li key={index} className="flex flex-col  group text-black w-full">
+              {item.subMenuItems ? (
+                <>
+                  <div
+                    className="w-full flex justify-between   gap-1 cursor-pointer"
+                    onClick={() => toggleDropdown(index)}
+                  >
+                    {item.label}
+                    {item.subMenuItems.length > 0 && (
+                      <ChevronDown
+                        className={`${
+                          openDropdownIndex === index ? 'rotate-180' : 'rotate-0'
+                        } transition-transform`}
+                      />
+                    )}
+                  </div>
+                  <AnimatePresence>
+                    {openDropdownIndex === index && (
+                      <motion.ul
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        variants={variants}
+                        className="origin-top bg-gray-50 rounded-md border-t-3 border-primary max-w-sm shadow-md flex flex-col gap-3 py-6 overflow-hidden"
+                      >
+                        {item.subMenuItems.map((subItem, subIndex) => (
+                          <li
+                            key={subIndex}
+                            className="text-black hover:text-primary px-6"
+                          >
+                            <Link
+                              href={subItem.link}
+                              className="cursor-pointer justify-between w-full"
+                            >
+                              {subItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </motion.ul>
+                      // <ul className="bg-gray-50 rounded-md border-t-3 border-primary max-w-sm shadow-md flex flex-col gap-3 py-6">
+                      //   {item.subMenuItems.map((subItem, subIndex) => (
+                      //     <li key={subIndex} className="text-black hover:text-primary px-6">
+                      //       <Link
+                      //         className="cursor-pointer justify-between w-full"
+                      //         href={subItem.link}
+                      //       >
+                      //         {subItem.label}
+                      //       </Link>
+                      //     </li>
+                      //   ))}
+                      // </ul>
+                    )}
+                  </AnimatePresence>
+                </>
+              ) : (
+                <Link
+                  className="cursor-pointer text-black flex items-center gap-1"
+                  href={item.link}
+                >
+                  {item.label}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };
