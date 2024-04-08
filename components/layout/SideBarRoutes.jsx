@@ -3,8 +3,20 @@ import { headerMenuItems } from './MenuItems';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const SideBarRoutes = () => {
+  const pathname = usePathname();
+  const isActive = link => {
+    return pathname === link ||
+      (pathname === '/' && link === '/') ||
+      pathname?.startsWith(`${link}/`)
+      ? 'active'
+      : '';
+  };
+
+  // console.log('MOBILE ROUTES', pathname);
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
 
   // const toggleDropdown = index => {
@@ -95,7 +107,14 @@ const SideBarRoutes = () => {
                   className="cursor-pointer text-black flex items-center gap-1"
                   href={item.link}
                 >
-                  {item.label}
+                  <span
+                    className={cn(
+                      'flex items-center hover:text-zinc-500 transition-all duration-500 ',
+                      isActive(item.link) && 'text-sky-700  hover:text-sky-900'
+                    )}
+                  >
+                    {item.label}
+                  </span>
                 </Link>
               )}
             </li>
