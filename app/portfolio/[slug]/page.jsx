@@ -2,8 +2,9 @@ import Heading from '@/components/common/Heading';
 import { getProject } from '@/lib/projects';
 import Image from 'next/image';
 
-const VictorianDresses = async () => {
-  const project = await getProject('victorian-dresses');
+const PortfolioSinglePage = async ({ params: { slug } }) => {
+  //console.log('PROPS', props);
+  const project = await getProject(slug);
 
   return (
     <div className="container mt-[3rem]">
@@ -26,4 +27,4 @@ const VictorianDresses = async () => {
     </div>
   );
 };
-export default VictorianDresses;
+export default PortfolioSinglePage;
