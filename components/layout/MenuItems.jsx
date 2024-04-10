@@ -44,6 +44,11 @@ export const headerMenuItems = [
 
   {
     id: 5,
+    label: 'blog',
+    link: '/blog'
+  },
+  {
+    id: 6,
     label: 'contact',
     link: '/contact'
   }

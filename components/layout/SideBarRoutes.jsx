@@ -16,7 +16,7 @@ const SideBarRoutes = () => {
       : '';
   };
 
-  console.log('MOBILE ROUTES', pathname);
+  //console.log('MOBILE ROUTES', pathname);
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
 
   const toggleDropdown = index => {
