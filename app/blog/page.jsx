@@ -3,6 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Heading from '@/components/common/Heading';
 
+export const metadata = {
+  title: 'Blog Page',
+  description: 'The best blog ever'
+};
+
 const BlogPage = async () => {
   const blogPosts = await getBlogPosts();
 
@@ -18,18 +23,18 @@ const BlogPage = async () => {
             >
               <Link href={`/blog/${post.slug}`}>
                 <Image
-                  src={post.image}
+                  src={post?.image}
                   width="400"
                   height="300"
                   alt=""
                   className="rounded-t"
                 />
                 <div className="flex flex-col">
-                  <span>{post.date}</span>
-                  <span>{post.category}</span>
+                  <span>{post?.date}</span>
+                  <span>{post?.category}</span>
                 </div>
 
-                <h2 className="font-semibold py-1 text-center">{post.title}</h2>
+                <h2 className="font-semibold py-1 text-center">{post?.title}</h2>
               </Link>
             </li>
           ))}
