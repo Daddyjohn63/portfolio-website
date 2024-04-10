@@ -6,6 +6,8 @@ const BlogSinglePage = async ({ params: { slug } }) => {
   //console.log('PROPS', props);
   const project = await getBlogPost(slug);
 
+  console.log('[Posts Page] rendering', slug);
+
   return (
     <div className="container mt-[3rem]">
       <div>

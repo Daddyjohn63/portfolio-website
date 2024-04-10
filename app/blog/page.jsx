@@ -1,10 +1,41 @@
 import { getBlogPosts } from '@/lib/blog';
+import Link from 'next/link';
+import Image from 'next/image';
+import Heading from '@/components/common/Heading';
 
 const BlogPage = async () => {
   const blogPosts = await getBlogPosts();
 
-  console.log('blog page:', blogPosts);
+  return (
+    <>
+      <div className="container py-12">
+        <Heading>Blog</Heading>
+        <ul className="flex flex-row flex-wrap gap-3">
+          {blogPosts.map(post => (
+            <li
+              key={post.slug}
+              className="bg-white border rounded shadow w-80 hover:shadow-xl"
+            >
+              <Link href={`/blog/${post.slug}`}>
+                <Image
+                  src={post.image}
+                  width="400"
+                  height="300"
+                  alt=""
+                  className="rounded-t"
+                />
+                <div className="flex flex-col">
+                  <span>{post.date}</span>
+                  <span>{post.category}</span>
+                </div>
 
-  return <div>BlogPage</div>;
+                <h2 className="font-semibold py-1 text-center">{post.title}</h2>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
 };
 export default BlogPage;
