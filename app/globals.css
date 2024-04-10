@@ -9,7 +9,9 @@ body,
 }
 
 body p,
-a {
+a,
+span,
+li {
   font-size: 1.2rem;
 }
 

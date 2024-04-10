@@ -2,6 +2,7 @@ import { getBlogPosts } from '@/lib/blog';
 import Link from 'next/link';
 import Image from 'next/image';
 import Heading from '@/components/common/Heading';
+import { formatDateString } from '@/lib/date';
 
 export const metadata = {
   title: 'Blog Page',
@@ -29,12 +30,15 @@ const BlogPage = async () => {
                   alt=""
                   className="rounded-t"
                 />
-                <div className="flex flex-col">
-                  <span>{post?.date}</span>
-                  <span>{post?.category}</span>
-                </div>
+                <div className="p-3">
+                  <div className="flex flex-col">
+                    <span>{formatDateString(post?.date)}</span>
+                    <span>{post?.category}</span>
+                  </div>
 
-                <h2 className="font-semibold py-1 text-center">{post?.title}</h2>
+                  <h2 className="font-semibold py-1">{post?.title}</h2>
+                  <p>{post?.excerpt}</p>
+                </div>
               </Link>
             </li>
           ))}
