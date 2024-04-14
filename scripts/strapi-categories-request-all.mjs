@@ -1,28 +1,15 @@
 // node scripts/strapi-categories-request-all.mjs
+//get all categories
 
 import { writeFileSync } from 'node:fs';
 import qs from 'qs';
 
 const url =
-  'http://127.0.0.1:1337/api/posts' +
+  'http://127.0.0.1:1337/api/categories' +
   '?' +
   qs.stringify(
     {
-      fields: [''],
-      populate: {
-        category: {
-          fields: ['title', 'slug']
-        }
-      },
-
-      pagination: { pageSize: 1 },
-      filters: {
-        category: {
-          title: {
-            $eq: 'books'
-          }
-        }
-      }
+      fields: ['title', 'slug']
     },
     { encodeValuesOnly: true }
   );

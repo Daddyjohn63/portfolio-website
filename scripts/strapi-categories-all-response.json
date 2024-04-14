@@ -1,9 +1,26 @@
 {
-  "data": null,
-  "error": {
-    "status": 400,
-    "name": "ValidationError",
-    "message": "Invalid parameter category",
-    "details": {}
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "title": "books",
+        "slug": "books"
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "title": "films",
+        "slug": "films"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 2
+    }
   }
 }
