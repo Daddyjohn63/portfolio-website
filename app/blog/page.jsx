@@ -11,6 +11,7 @@ export const metadata = {
 
 const BlogPage = async () => {
   const blogPosts = await getBlogPosts();
+  // console.log('[Blog Posts]', blogPosts);
 
   return (
     <>
@@ -33,7 +34,19 @@ const BlogPage = async () => {
                 <div className="p-3">
                   <div className="flex flex-col">
                     <span>{formatDateString(post?.date)}</span>
-                    <span>{post?.category}</span>
+
+                    <span className="text-gray-600  mt-1 block">
+                      {post.categories.map((cat, index) => [
+                        <Link
+                          key={cat.slug}
+                          href={`/category/${cat.slug}`}
+                          className="hover:underline capitalize"
+                        >
+                          {cat.title}
+                        </Link>,
+                        index < post.categories.length - 1 && ', '
+                      ])}
+                    </span>
                   </div>
 
                   <h2 className="font-semibold py-1">{post?.title}</h2>

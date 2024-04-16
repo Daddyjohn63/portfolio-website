@@ -9,7 +9,7 @@ const url =
   '?' +
   qs.stringify(
     {
-      fields: ['slug', 'title', 'subtitle', 'publishedAt'],
+      fields: ['slug', 'title', 'subtitle', 'excerpt', 'publishedAt'],
       populate: {
         categories: {
           fields: ['title', 'slug'],
