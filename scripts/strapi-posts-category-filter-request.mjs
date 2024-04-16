@@ -11,16 +11,17 @@ const query = qs.stringify(
     fields: ['slug', 'title', 'subtitle', 'publishedAt'],
     populate: {
       categories: {
-        fields: ['title', 'slug'],
-        sort: ['name:asc'],
-        filters: {
-          title: {
-            $eq: categoryName
-          }
-        }
+        fields: ['title', 'slug']
       },
       image: {
         fields: ['url']
+      }
+    },
+    filters: {
+      categories: {
+        title: {
+          $eq: categoryName
+        }
       }
     },
     sort: ['publishedAt:desc'],

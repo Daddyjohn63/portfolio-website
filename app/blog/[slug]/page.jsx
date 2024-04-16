@@ -11,7 +11,7 @@ import Image from 'next/image';
 
 export async function generateMetadata({ params: { slug } }) {
   const post = await getBlogPost(slug);
-  console.log('[Single Post]', post);
+  //console.log('[Single Post]', post);
   return {
     title: post?.title
   };
@@ -29,15 +29,17 @@ export async function generateMetadata({ params: { slug } }) {
 const BlogSinglePage = async ({ params: { slug } }) => {
   //console.log('PROPS', props);
   const post = await getBlogPost(slug);
+  //console.log('POST me', post);
 
   const formattedDate = formatDateString(post?.date);
 
-  console.log('[Posts Page] rendering', slug);
+  //console.log('[Posts Page] rendering', slug);
 
   return (
     <div className="container mt-[3rem]">
       <div>
         <Heading>{post?.title}</Heading>
+        <h3>{post?.subtitle}</h3>
         <span>{formattedDate}</span>
       </div>
       <Image
