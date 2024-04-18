@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": 3,
+      "attributes": {
+        "slug": "post-3"
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "slug": "post-2"
+      }
+    },
+    {
+      "id": 1,
+      "attributes": {
+        "slug": "post-1"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 100,
+      "pageCount": 1,
+      "total": 3
+    }
+  }
+}

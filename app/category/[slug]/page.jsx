@@ -12,7 +12,7 @@ const CategoryPostsPage = async ({ params: { slug } }) => {
   const categoryTitle = await getCategoryTitleBySlug(slug);
   const categoryPosts = await getCategoryPosts(slug);
 
-  console.log('CAT TITLE', categoryTitle);
+  //console.log('CAT TITLE', categoryTitle);
 
   //return the JSX needed to render the data.
   return (

@@ -4,10 +4,15 @@ import { getBlogPost, getSlugs } from '@/lib/blog';
 import { formatDateString } from '@/lib/date';
 import Image from 'next/image';
 
-// export async function generateStaticParams() {
-//   const slugs = await getSlugs();
-//   return slugs.map(slug => ({ slug })); //convert string to object
-// }
+export async function generateStaticParams() {
+  const slugs = await getSlugs();
+  //console.log('[BlogPage] generateStaticParams:', slugs);
+  return slugs.map(slug => ({ slug })); //convert string to object
+}
+
+const slugs1 = await getSlugs();
+
+console.log(slugs1);
 
 export async function generateMetadata({ params: { slug } }) {
   const post = await getBlogPost(slug);
@@ -16,15 +21,6 @@ export async function generateMetadata({ params: { slug } }) {
     title: post?.title
   };
 }
-
-// slug: 'first-post',
-//   title: 'First Post',
-//   date: '2024-06-01',
-//   image: '/images/blog1.jpg',
-//   category: 'films',
-//   subheading: '',
-
-//   body:
 
 const BlogSinglePage = async ({ params: { slug } }) => {
   //console.log('PROPS', props);
